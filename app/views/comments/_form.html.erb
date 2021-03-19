@@ -1,0 +1,15 @@
+<% if current_user.present? %>
+<li>Add a public comment</li>
+
+<%= form_with(model: @comment, url: comments_path, local: true) do |form| %>
+ <div class="field">
+   <%= form.label :body %>
+   <%= form.text_area :body, name: "comment[body]" %>
+ </div>
+  <%= form.hidden_field :blog_id, value: params[:id] %>
+
+ <div class="actions">
+   <%= form.submit %>
+ </div>
+<% end %>
+<% end %>

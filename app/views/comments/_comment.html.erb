@@ -1,0 +1,14 @@
+<li>
+  <%= comment.body %><% if current_user.present? %> -
+
+  <%= form_for [comment, Comment.new] do |f| %>
+      <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Reply"  %>
+      <% end %>
+      <% end %>
+
+  <ul>
+      <%= render partial: 'comments/comment', collection: comment.comments %>
+  </ul>
+
+</li>
